@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vepaly-Online | TOEFL iBT Final Assessment (50 Questions)</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+    body {
+      background-color: #121212;
+      color: #f1f1f1;
+      padding: 16px;
+      line-height: 1.5;
+    }
+    .container {
+      max-width: 780px;
+      margin: 0 auto;
+      background: #1e1e1e;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+    }
+    h1 {
+      text-align: center;
+      font-size: 1.45rem;
+      margin-bottom: 4px;
+      color: #ffffff;
+    }
+    .subtitle {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #90caf9;
+      margin-bottom: 18px;
+    }
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    .tab-btn {
+      background: #2c2c2c;
+      color: #e0e0e0;
+      border: 1px solid #444;
+      padding: 8px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.88rem;
+      font-weight: 600;
+    }
+    .tab-btn.active {
+      background: #1976d2;
+      color: #ffffff;
+      border-color: #1976d2;
+    }
+    #level-heading {
+      font-size: 1.15rem;
+      margin-bottom: 10px;
+      color: #ffffff;
+    }
+    .key-rule {
+      background: #263238;
+      color: #cfd8dc;
+      padding: 10px 14px;
+      border-radius: 8px;
+      margin-bottom: 16px;
+      font-size: 0.88rem;
+      border-left: 4px solid #1976d2;
+    }
+    .question {
+      background: #252525;
+      padding: 14px;
+      border-radius: 8px;
+      margin-bottom: 14px;
+      border-left: 4px solid #444;
+      transition: all 0.2s ease;
+    }
+    .block-tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      background: #333;
+      color: #90caf9;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+    .q-title {
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: #ffffff;
+    }
+    .question label {
+      display: block;
+      padding: 6px 8px;
+      margin-bottom: 4px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .question label:hover {
+      background: rgba(255, 255, 255, 0.05);
+    }
+    .question input[type="radio"] {
+      margin-right: 8px;
+      transform: scale(1.1);
+    }
+    .actions {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .btn {
+      flex: 1;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .btn-submit {
+      background: #2e7d32;
+      color: #ffffff;
+    }
+    .btn-reset {
+      background: #424242;
+      color: #ffffff;
+    }
+    #result-box {
+      margin-top: 18px;
+      padding: 16px;
+      border-radius: 8px;
+      background: #252525;
+      text-align: center;
+      font-size: 1.1rem;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>VEPALY-ONLINE ENGLISH SCHOOL</h1>
+    <div class="subtitle">TOEFL iBT Intensive Preparation Course (33 Lessons | B1/B2 → C1)</div>
+
+    <div class="tabs" id="tab-bar"></div>
+
+    <h2 id="level-heading"></h2>
+    <div id="quiz-box"></div>
+
+    <div class="actions">
+      <button class="btn btn-submit" onclick="checkAnswers()">Submit Test</button>
+      <button class="btn btn-reset" onclick="resetQuiz()">Reset</button>
+    </div>
+
+    <div id="result-box"></div>
+  </div>
+
+  <script>
+    const tests = {
+      toefl_full: {
+        label: "Full Course Exam (50 Qs)",
+        heading: "Lesson 33: Final Comprehensive TOEFL iBT Assessment (50 Questions)",
+        rule: "Progression Criterion: Minimum 70% (35/50) required to pass. Correct answers show ✅ (green); incorrect/skipped answers show ❌ (red).",
+        questions: [
+          // BLOCK 1 & 2: Introduction & Reading Section (Lessons 1–9)
+          { tag: "Block 1 • Lesson 1: Format & Time Management", q: "1. In the TOEFL iBT Reading section, what is the primary strategy when encountering an unfamiliar technical term that is not tested?", options: ["Spend three minutes analyzing its root and prefix", "Skip past it and focus on the main clause structure", "Stop reading the passage and guess the remaining answers", "Translate every surrounding word into your native language"], answer: 1 },
+          { tag: "Block 2 • Lesson 2: Factual & Negative Factual", q: "2. How should you approach a 'Negative Factual Information' question (e.g., 'All of the following are true EXCEPT')?", options: ["Select the option that uses the exact same words as the first sentence", "Eliminate the three choices explicitly supported by the passage", "Choose the longest and most detailed option", "Rely only on prior background knowledge of the topic"], answer: 1 },
+          { tag: "Block 2 • Lesson 2: Scanning & Details", q: "3. Passage: 'Unlike deciduous trees, which shed their foliage annually, conifers retain their needles year-round, allowing photosynthesis whenever temperatures permit.' According to the passage, conifers differ from deciduous trees because they:", options: ["Only perform photosynthesis during summer months", "Lose all their leaves at the end of autumn", "Keep their needles throughout the entire year", "Cannot survive in freezing climates"], answer: 2 },
+          { tag: "Block 2 • Lesson 3: Vocabulary in Context", q: "4. 'Early astronomical instruments were too RUDIMENTARY to resolve the faint rings encircling distant planets.' The word RUDIMENTARY is closest in meaning to:", options: ["sophisticated", "basic", "fragile", "expensive"], answer: 1 },
+          { tag: "Block 2 • Lesson 3: Vocabulary in Context", q: "5. 'Although the initial hypothesis seemed PLAUSIBLE, subsequent laboratory trials failed to confirm it.' The word PLAUSIBLE is closest in meaning to:", options: ["believable", "contradictory", "obsolete", "trivial"], answer: 0 },
+          { tag: "Block 2 • Lesson 3: Vocabulary in Context", q: "6. 'Prolonged drought can EXACERBATE soil erosion in regions already stripped of native vegetation.' The word EXACERBATE is closest in meaning to:", options: ["prevent", "worsen", "measure", "fertilize"], answer: 1 },
+          { tag: "Block 2 • Lesson 3: Vocabulary in Context", q: "7. 'The archaeologist’s findings CORROBORATED earlier theories that the two ancient civilizations traded regularly.' The word CORROBORATED is closest in meaning to:", options: ["disproved", "confirmed", "ignored", "complicated"], answer: 1 },
+          { tag: "Block 2 • Lesson 3: Vocabulary in Context", q: "8. 'Because deep-sea vents emit superheated minerals, organisms living nearby must tolerate UBIQUITOUS chemical fluctuations.' The word UBIQUITOUS is closest in meaning to:", options: ["rare", "widespread", "harmless", "predictable"], answer: 1 },
+          { tag: "Block 2 • Lesson 4: Inference & Rhetorical Purpose", q: "9. Passage: 'While medieval scribes copied manuscripts by hand, a single book required months of labor; consequently, literacy remained restricted to a tiny elite.' What can be inferred about the invention of the printing press?", options: ["It immediately eliminated all handwritten letters", "It reduced book production time and helped expand literacy", "It made books more expensive for wealthy nobles", "It was rejected by European universities"], answer: 1 },
+          { tag: "Block 2 • Lesson 4: Rhetorical Purpose", q: "10. Why does an author typically introduce a specific historical example immediately after stating a broad scientific theory?", options: ["To distract the reader from flaws in the theory", "To illustrate and substantiate the abstract claim with concrete evidence", "To prove that the theory is no longer accepted", "To introduce an unrelated topic for the next paragraph"], answer: 1 },
+          { tag: "Block 2 • Lesson 5: Sentence Simplification", q: "11. Original: 'Despite possessing no centralized nervous system, jellyfish respond effectively to environmental stimuli through a diffuse network of sensory neurons.' Which sentence best expresses the essential information?", options: ["Jellyfish lack a central brain, so they cannot react to changes in their environment.", "A spread-out network of sensory neurons enables jellyfish to react to stimuli without a central nervous system.", "Jellyfish have the most complex centralized nervous system among marine invertebrates.", "Environmental stimuli prevent jellyfish from developing a centralized nervous system."], answer: 1 },
+          { tag: "Block 2 • Lesson 5: Sentence Simplification", q: "12. Original: 'Had volcanic ash not buried the Roman town rapidly, organic materials such as wooden furniture and woven fabrics would have decayed long ago.' Which choice best paraphrases this sentence?", options: ["Rapid burial under volcanic ash preserved organic items that otherwise would have decomposed.", "Volcanic ash destroyed all wooden and woven artifacts in the Roman town.", "Organic materials in Roman towns rarely decay even without volcanic ash.", "The town was abandoned long before volcanic ash covered its wooden buildings."], answer: 0 },
+          { tag: "Block 2 • Lesson 6: Insert Text & Cohesion", q: "13. Where does the sentence 'This phenomenon, known as urban heat island effect, is primarily driven by heat-absorbing asphalt and concrete.' fit best?", options: ["Before a paragraph introducing rural agriculture", "Immediately after a sentence noting that cities are several degrees warmer than surrounding countryside", "At the very end of a passage about ocean currents", "Before defining what a city is"], answer: 1 },
+          { tag: "Block 2 • Lesson 6: Demonstrative Pronouns", q: "14. In Insert Text questions, if the target sentence begins with 'These factors, however, do not fully account for the decline...', what must appear in the sentence immediately before it?", options: ["A statistical table of population growth", "One or more specific causes proposed to explain a decline", "A concluding summary of the entire passage", "An unrelated anecdote about a researcher"], answer: 1 },
+          { tag: "Block 2 • Lesson 7: Prose Summary", q: "15. Which type of statement should you EXCLUDE when selecting the three main ideas for a Prose Summary question?", options: ["A broad thesis summarizing an entire section of the passage", "A minor statistical example mentioned only once to support a sub-point", "A primary cause-and-effect relationship central to the passage", "A major contrast between two competing theories discussed throughout the text"], answer: 1 },
+          { tag: "Block 2 • Lesson 8: Fill in a Table", q: "16. In 'Fill in a Table' classification questions, how many answer choices typically remain unused as distractors?", options: ["Zero; every option must be placed into the table", "Usually two choices that are either false or minor details", "Five choices from a different passage", "Only one choice"], answer: 1 },
+          { tag: "Block 2 • Lesson 9: Timed Reading Drill", q: "17. What is the recommended pacing per passage (10 questions) during a full-length TOEFL iBT Reading section?", options: ["Approximately 18 minutes per passage", "35 minutes per passage", "5 minutes per passage", "45 minutes total for one passage"], answer: 0 },
+          { tag: "Block 3 • Lesson 10: Campus Conversations (Gist)", q: "18. A student visits the university registrar's office saying: 'I submitted my thesis advisor form last week, yet my portal still shows an academic hold blocking registration.' What is the student's primary purpose?", options: ["To drop all courses for the upcoming semester", "To resolve an administrative hold preventing course registration", "To request a refund on library fines", "To apply for a campus housing transfer"], answer: 1 },
+          { tag: "Block 3 • Lesson 10: Campus Conversations", q: "19. In a campus conversation, why does an academic advisor often mention a deadline early in the dialogue?", options: ["To end the conversation immediately", "To establish a constraint that shapes the student's available options", "To test the student's memory of university history", "To complain about administrative paperwork"], answer: 1 },
+          { tag: "Block 3 • Lesson 11: Academic Lectures (Note-Taking)", q: "20. Which note-taking practice is most effective during a 5-minute TOEFL academic lecture?", options: ["Writing down every single word the professor says in full sentences", "Using abbreviations, arrows (→), and symbols to capture main concepts and examples", "Drawing detailed illustrations instead of writing keywords", "Waiting until the lecture finishes before writing anything"], answer: 1 },
+          { tag: "Block 3 • Lesson 11: Academic Lectures (Details)", q: "21. During a biology lecture, a professor repeats a term twice, slows down, and defines it clearly. This signal indicates:", options: ["The professor lost their place in the notes", "A key concept likely to be tested in a Detail or Organization question", "Information that students should completely ignore", "A joke unrelated to the exam"], answer: 1 },
+          { tag: "Block 3 • Lesson 12: Function of Utterance", q: "22. In a lecture on classical economics, a professor asks: 'Now, why would a rational consumer pay twice as much for an identical product?' What is the function of this question?", options: ["To punish students who did not read the textbook", "To introduce a paradox that the professor is about to explain", "To take attendance in the lecture hall", "To ask students to leave the classroom"], answer: 1 },
+          { tag: "Block 3 • Lesson 12: Function of Utterance", q: "23. Student: 'I thought we only needed two peer-reviewed sources.' Professor: 'Well, two was the minimum for the rough draft, NOT the final research paper.' What does the professor imply?", options: ["The student has already finished the final paper", "The final paper requires more than two peer-reviewed sources", "Peer-reviewed sources are no longer allowed", "The rough draft grade will be canceled"], answer: 1 },
+          { tag: "Block 3 • Lesson 13: Midterm 1 Check", q: "24. According to the Vepaly-Online curriculum, what score threshold must a student achieve on Midterm Test 1 (Reading & Listening) to progress?", options: ["50%", "60%", "70%", "95%"], answer: 2 },
+          { tag: "Block 3 • Lesson 14: Speaker's Attitude", q: "25. Professor: 'Early researchers claimed this fossil proved birds evolved directly from marine reptiles—though how they ignored the skeletal data is beyond me.' What is the professor's attitude toward those early researchers?", options: ["Enthusiastic agreement", "Skeptical and critical of their oversight", "Completely indifferent", "Confused about what a fossil is"], answer: 1 },
+          { tag: "Block 3 • Lesson 15: Lecture Organization", q: "26. When a professor organizes a geology lecture by comparing Shield Volcanoes and Stratovolcanoes across magma viscosity, slope angle, and eruption style, the lecture structure is:", options: ["Chronological narrative", "Compare and contrast by category", "Personal biography", "Random brainstorming"], answer: 1 },
+          { tag: "Block 4 • Lesson 16: Speaking Task 1 (Independent)", q: "27. How much preparation time and response time are given for TOEFL Speaking Task 1 (Independent Choice/Opinion)?", options: ["15 seconds to prepare, 45 seconds to speak", "30 seconds to prepare, 60 seconds to speak", "45 seconds to prepare, 15 seconds to speak", "60 seconds to prepare, 2 minutes to speak"], answer: 0 },
+          { tag: "Block 4 • Lesson 16: Speaking Task 1 Structure", q: "28. What is the strongest structure for a 45-second Speaking Task 1 response?", options: ["Clear thesis statement + Reason 1 with brief example + Reason 2 with brief example", "Listing ten unorganized ideas without any examples", "Repeating the prompt word-for-word for 30 seconds", "Giving no clear opinion until the final second"], answer: 0 },
+          { tag: "Block 4 • Lesson 17: Speaking Task 2 (Campus)", q: "29. In Speaking Task 2 (Campus Announcement + Conversation), what should your spoken response focus on?", options: ["Your personal opinion about the university policy", "Summarizing the announcement briefly and explaining the speaker's opinion and two reasons", "Reading the entire campus notice aloud", "Criticizing the student's grammar in the audio"], answer: 1 },
+          { tag: "Block 4 • Lesson 18: Speaking Task 3 (Academic)", q: "30. In Speaking Task 3 (Academic Reading & Lecture), how do the reading passage and the professor's lecture relate?", options: ["The lecture completely disproves the reading passage", "The reading defines an academic concept, and the lecture illustrates it with specific examples", "Both sources tell unrelated personal stories", "The reading lists vocabulary words that the professor translates"], answer: 1 },
+          { tag: "Block 4 • Lesson 19: Speaking Task 4 (Lecture Summary)", q: "31. Speaking Task 4 differs from Tasks 2 and 3 because:", options: ["It includes two reading passages and no audio", "There is no reading passage; you summarize a 2-minute academic lecture", "You have 5 minutes to write an essay first", "You are graded only on speaking speed"], answer: 1 },
+          { tag: "Block 4 • Lesson 20: Fluency & Pacing", q: "32. Which habit lowers a student's Delivery score in the Speaking section?", options: ["Using natural stress on key content words", "Frequent hesitation fillers ('uh', 'um', 'like') and long unnatural pauses", "Maintaining a steady, intelligible pace", "Linking words smoothly across thought groups"], answer: 1 },
+          { tag: "Block 4 • Lesson 21: Timing Control", q: "33. What is the exact response time limit for Integrated Speaking Tasks 2, 3, and 4?", options: ["30 seconds each", "45 seconds each", "60 seconds each", "90 seconds each"], answer: 2 },
+          { tag: "Block 4 • Lesson 22: Official Speaking Rubrics", q: "34. Under official ETS TOEFL rubrics, Speaking responses are scored across which three core dimensions?", options: ["Handwriting, Spelling, and Length", "Delivery, Language Use, and Topic Development", "Accent elimination, Speed, and Volume", "Vocabulary count, Humor, and Eye contact"], answer: 1 },
+          { tag: "Block 5 • Lesson 24: Integrated Writing (Task 1)", q: "35. In TOEFL Integrated Writing (Task 1), what is the primary relationship between the reading passage and the lecture?", options: ["The lecture typically casts doubt on or refutes each of the reading's three points", "The lecture repeats the reading passage word-for-word", "You must argue which side you personally prefer", "The reading summarizes a movie that the lecture reviews"], answer: 0 },
+          { tag: "Block 5 • Lesson 24: Integrated Writing Rules", q: "36. What happens if you include your own personal opinion ('I personally believe...') in Integrated Writing Task 1?", options: ["You receive bonus points for creativity", "It violates the task prompt, which asks only to synthesize the reading and lecture", "It replaces the need to mention the lecture", "It automatically doubles your score"], answer: 1 },
+          { tag: "Block 5 • Lesson 25: Coherence & Contrasting Linkers", q: "37. Select the best academic transition to contrast the reading's claim with the professor's lecture: 'The article asserts that solar subsidies strain budgets; _____, the professor demonstrates they generate net tax revenue.'", options: ["consequently", "conversely", "similarly", "furthermore"], answer: 1 },
+          { tag: "Block 5 • Lesson 25: Coherence & Cohesion", q: "38. Which linking phrase introduces a concession effectively in an academic essay?", options: ["Notwithstanding the initial cost, renewable infrastructure yields long-term savings.", "Because of the initial cost, renewable infrastructure yields long-term savings.", "For instance the initial cost, renewable infrastructure yields long-term savings.", "In addition the initial cost, renewable infrastructure yields long-term savings."], answer: 0 },
+          { tag: "Block 5 • Lesson 26: Writing for an Academic Discussion (Task 2)", q: "39. How much time is allotted to read the prompt and write your response in TOEFL Writing Task 2 ('Academic Discussion')?", options: ["10 minutes", "20 minutes", "30 minutes", "45 minutes"], answer: 0 },
+          { tag: "Block 5 • Lesson 26: Academic Discussion Strategy", q: "40. To earn a top score in Writing for an Academic Discussion (Task 2), your post should:", options: ["Copy the two classmates' posts without adding anything new", "State a clear position, contribute a fresh idea, and engage with the discussion context", "Write only two short sentences to save time", "Ignore the professor's question entirely"], answer: 1 },
+          { tag: "Block 5 • Lesson 27: Rapid Outlining", q: "41. Why should you spend the first 1.5–2 minutes outlining during a 10-minute Academic Discussion task?", options: ["To prevent logical gaps and repetitive sentences while typing", "Because the keyboard is locked for two minutes", "To count how many letters are in the prompt", "To memorize the classmates' names"], answer: 0 },
+          { tag: "Block 5 • Lesson 28: C1–C2 Lexical Diversity", q: "42. Replace the basic verb phrase in this academic sentence: 'The new findings SHOW THAT earlier models were inaccurate.'", options: ["demonstrate that", "look like", "say maybe", "talk about"], answer: 0 },
+          { tag: "Block 5 • Lesson 28: C1–C2 Grammatical Accuracy", q: "43. Which sentence demonstrates C1-level grammatical control and inversion?", options: ["Not only does remote work reduce commuting emissions, but it also boosts employee retention.", "Not only remote work reduces commuting emissions, it also boosts employee retention.", "Not only does remote work reduces commuting emissions, but also boosts retention.", "Remote work not only reduce commuting emissions, but it also boost retention."], answer: 0 },
+          { tag: "Block 5 • Lesson 28: C1–C2 Lexical Precision", q: "44. Replace the informal word 'BIG' in: 'Artificial intelligence is causing a BIG transformation in medical diagnostics.'", options: ["profound", "tiny", "loud", "casual"], answer: 0 },
+          { tag: "Block 5 • Lesson 29: Midterm 3 Writing Simulation", q: "45. How long is the Integrated Writing task (Task 1) after the 3-minute reading period ends?", options: ["10 minutes", "20 minutes", "30 minutes", "40 minutes"], answer: 1 },
+          { tag: "Block 6 • Lesson 30: Avoiding Distractor Traps", q: "46. Which of the following is a classic TOEFL Reading/Listening 'distractor trap'?", options: ["An option using extreme absolutes ('always', 'never', 'completely') not supported by the source", "An accurate paraphrase of the main idea using synonyms", "A conclusion directly supported by two facts in the text", "A definition matching the context of the paragraph"], answer: 0 },
+          { tag: "Block 6 • Lesson 30: Distractor Analysis", q: "47. Why is an answer choice that repeats exact buzzwords from a Listening lecture often a trap?", options: ["Because TOEFL distractors frequently combine familiar words from the audio into a false statement", "Because the correct answer never relates to the lecture topic", "Because buzzwords are only used in the Speaking section", "Because professors never use academic vocabulary"], answer: 0 },
+          { tag: "Block 6 • Lesson 31: Comprehensive Flash Drills", q: "48. During the transition from Listening to Speaking on exam day, what is the best use of the brief direction screens?", options: ["Take a deep breath, check your scratch paper layout, and reset your focus", "Try to rewrite your entire Reading passage from memory", "Close your eyes and sleep for ten minutes", "Erase all notes you took during the Listening section"], answer: 0 },
+          { tag: "Block 6 • Lesson 32: Weak-Spot Correction", q: "49. If a student consistently scores 85% in Reading/Listening but 60% in Speaking/Writing, what should be the priority before the final exam?", options: ["Practicing timed synthesis templates and reducing hesitation pauses under clock pressure", "Studying only Reading vocabulary lists for another month", "Skipping the Speaking section during the mock exam", "Memorizing random essays unrelated to the prompt"], answer: 0 },
+          { tag: "Block 6 • Lesson 33: Vepaly-Online Regulation", q: "50. Under the Vepaly-Online English School Methodological Regulation, classes are conducted 100% in English to achieve:", options: ["Full linguistic immersion (иммерсивный метод) alongside a daily bilingual Vocabulary of the Day block", "Translation-only grammar drills without speaking", "Self-study without teacher feedback", "A 30% passing threshold"], answer: 0 }
+        ]
+      }
+    };
+    let currentLevel = "toefl_full";
+
+    function initTabs() {
+      const tabBar = document.getElementById("tab-bar");
+      tabBar.innerHTML = "";
+      Object.keys(tests).forEach((key) => {
+        const btn = document.createElement("button");
+        btn.className = "tab-btn" + (key === currentLevel ? " active" : "");
+        btn.textContent = tests[key].label;
+        btn.onclick = () => loadLevel(key);
+        tabBar.appendChild(btn);
+      });
+    }
+
+    function loadLevel(level) {
+      currentLevel = level;
+      initTabs();
+
+      const resBox = document.getElementById("result-box");
+      resBox.style.display = "none";
+      resBox.innerHTML = "";
+
+      const data = tests[level];
+      document.getElementById("level-heading").textContent = data.heading;
+
+      let html = `<div class="key-rule">${data.rule}</div>`;
+      data.questions.forEach((item, idx) => {
+        html += `<div class="question">`;
+        if (item.tag) {
+          html += `<div class="block-tag">${item.tag}</div>`;
+        }
+        html += `<div class="q-title">${item.q}</div>`;
+        item.options.forEach((opt, optIdx) => {
+          html += `<label><input type="radio" name="q${idx}" value="${optIdx}"> ${opt}</label>`;
+        });
+        html += `</div>`;
+      });
+
+      document.getElementById("quiz-box").innerHTML = html;
+    }
+
+    function checkAnswers() {
+      const data = tests[currentLevel];
+      let score = 0;
+      const questionDivs = document.querySelectorAll("#quiz-box .question");
+
+      data.questions.forEach((item, idx) => {
+        const qBox = questionDivs[idx];
+        const inputs = document.querySelectorAll(`input[name="q${idx}"]`);
+        const selected = document.querySelector(`input[name="q${idx}"]:checked`);
+
+        qBox.style.borderLeft = "4px solid #444";
+        qBox.style.backgroundColor = "#252525";
+        qBox.querySelectorAll(".status-sign").forEach((el) => el.remove());
+
+        inputs.forEach((inp) => {
+          inp.disabled = true;
+          inp.parentElement.style.color = "";
+          inp.parentElement.style.fontWeight = "";
+        });
+
+        if (selected && Number(selected.value) === item.answer) {
+          score++;
+          qBox.style.borderLeft = "5px solid #4caf50";
+          qBox.style.backgroundColor = "rgba(76, 175, 80, 0.15)";
+          selected.parentElement.style.color = "#81c784";
+          selected.parentElement.style.fontWeight = "bold";
+          selected.parentElement.insertAdjacentHTML(
+            "beforeend",
+            ' <span class="status-sign" style="color:#4caf50;">✅ True</span>'
+          );
+        } else {
+          qBox.style.borderLeft = "5px solid #f44336";
+          qBox.style.backgroundColor = "rgba(244, 67, 54, 0.15)";
+          if (selected) {
+            selected.parentElement.style.color = "#e57373";
+            selected.parentElement.style.fontWeight = "bold";
+            selected.parentElement.insertAdjacentHTML(
+              "beforeend",
+              ' <span class="status-sign" style="color:#f44336;">❌ Wrong</span>'
+            );
+          } else {
+            qBox.insertAdjacentHTML(
+              "beforeend",
+              '<div class="status-sign" style="color:#f44336; font-weight:bold; margin-top:6px;">❌ Not Answered</div>'
+            );
+          }
+
+          if (inputs[item.answer]) {
+            inputs[item.answer].parentElement.style.color = "#81c784";
+            inputs[item.answer].parentElement.style.fontWeight = "bold";
+            inputs[item.answer].parentElement.insertAdjacentHTML(
+              "beforeend",
+              ' <span class="status-sign" style="color:#4caf50;">✅ Correct Answer</span>'
+            );
+          }
+        }
+      });
+
+      const percent = Math.round((score / data.questions.length) * 100);
+      const passed = percent >= 70;
+      const res = document.getElementById("result-box");
+      res.style.display = "block";
+      res.innerHTML = `Your Score: ${score} / ${data.questions.length} (${percent}%) — ${
+        passed
+          ? "✅ PASSED (Eligible for Next Level / Certificate)"
+          : "❌ BELOW 70% THRESHOLD (Review & Retake Required)"
+      }`;
+      res.style.color = passed ? "#81c784" : "#e57373";
+      res.style.border = passed ? "1px solid #4caf50" : "1px solid #f44336";
+      res.scrollIntoView({ behavior: "smooth" });
+    }
+
+    function resetQuiz() {
+      loadLevel(currentLevel);
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    initTabs();
+    loadLevel("toefl_full");
+  </script>
+</body>
+</html>
